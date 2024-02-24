@@ -1,0 +1,28 @@
+<script>
+    "use strict";
+
+    async function exec() {
+        let headersList = {
+            "Accept": "application/json",
+            "Content-Type": "application/json", // Set content type to JSON
+            "User-Agent": "Thunder Client (https://www.thunderclient.com)"
+        };
+
+        let requestBody = {
+            "username": "manpreet3",
+            "email": "manpreet3@gmail.com",
+            "password": "123456"
+        };
+
+        let response = await fetch("http://localhost:3000/api/v1/users/login", {
+            method: "POST",
+            body: JSON.stringify(requestBody), // Convert to JSON string
+            headers: headersList
+        });
+
+        let data = await response.json(); // Parse response as JSON
+        console.log(data);
+    }
+
+    exec();
+</script>
